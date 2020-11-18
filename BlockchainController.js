@@ -20,17 +20,6 @@ class BlockchainController {
         this.validate();
     }
 
-    validate() {
-        this.app.get("/validate", async (req, res) => {
-            try {
-                let isValid = await this.blockchain.validateChain();
-                return res.status(200).json(isValid);
-            } catch (error) {
-                console.log(error);
-            }
-        });
-    }
-
     // Enpoint to Get a Block by Height (GET Endpoint)
     getBlockByHeight() {
         this.app.get("/block/:height", async (req, res) => {
